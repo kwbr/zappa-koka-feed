@@ -1,6 +1,6 @@
 from urlparse import urljoin
-from flask import Flask, request
 from datetime import datetime
+from flask import Flask, request
 from werkzeug.contrib.atom import AtomFeed
 
 import koka
@@ -12,6 +12,7 @@ def make_external(url):
         return urljoin('http://www.koka36.de', url)
     else:
         return None
+
 
 @app.route("/api/rss/koka")
 def koka_feed():
@@ -30,6 +31,7 @@ def koka_feed():
                  updated=datetime.utcnow())
 
     return feed.get_response()
+
 
 if __name__ == "__main__":
     from os import getuid

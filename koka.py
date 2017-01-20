@@ -1,14 +1,13 @@
 import bs4
 import requests
 
-from urlparse import urljoin
-from werkzeug.contrib.atom import AtomFeed
-
 __KOKA_URL = 'http://www.koka36.de/neu_im_vorverkauf.php'
 
+
 def get_feed():
-    input = requests.get(__KOKA_URL)
-    soup = bs4.BeautifulSoup(input.text, 'lxml')
+    """Get events from Koka36 website"""
+    html = requests.get(__KOKA_URL)
+    soup = bs4.BeautifulSoup(html.text, 'lxml')
 
     items = []
 
