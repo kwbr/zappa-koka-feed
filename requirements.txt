@@ -1,0 +1,5 @@
+Flask
+zappa
+requests
+beautifulsoup4
+lxml
